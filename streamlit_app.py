@@ -15,6 +15,7 @@ streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 
 # Insert a pick list so to choose what fruits they want to include.
 
-streamlit.multiselect("Pick some fruits", list(my_fruit_list.index), ['Avocado', 'Strawberries'])
+fruit_selected = streamlit.multiselect("Pick some fruits", list(my_fruit_list.index), ['Avocado', 'Strawberries'])
+fruit_to_show = my_fruit_list.loc[fruit_selected]
 
-streamlit.dataframe(my_fruit_list)
+streamlit.dataframe(fruits_to_show)
