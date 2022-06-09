@@ -11,10 +11,10 @@ streamlit.title("My Parents New Healthy Dinner")
 streamlit.header("Breakfast Menu")
 streamlit.text(fruityvice_response)
 
-# streamlit.text("🥣 Omega 3 & Blueberry Oatmeal")
-# streamlit.text("🥗 Kale, Spinach & Ricket Smoothie")
-# streamlit.text("🐔 Hard-Boiled Free-Range Egg")
-# streamlit.text("🥑🍞 Avocado Toast")
+streamlit.text("🥣 Omega 3 & Blueberry Oatmeal")
+streamlit.text("🥗 Kale, Spinach & Ricket Smoothie")
+streamlit.text("🐔 Hard-Boiled Free-Range Egg")
+streamlit.text("🥑🍞 Avocado Toast")
 
 streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 
