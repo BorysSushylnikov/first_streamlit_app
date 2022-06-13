@@ -4,6 +4,13 @@ import requests
 import snowflake.connector
 from urllib.error import URLError
 
+#create the repeatable code block (called a function)
+def get_fuityvice_data(this_fruit_choice):
+  fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+  # take the json version of the response and normalize it
+  fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+  return fruityvice_normalized
+
 my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 my_fruit_list = my_fruit_list.set_index("Fruit")
 
@@ -32,11 +39,12 @@ try:
   if not fruit_choice:
     streamlit.error("Please select a fruit to get information.")
   else:
-    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-    # take the json version of the response and normalize it 
-    fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-    # output it the screen as a table 
-    streamlit.dataframe(fruityvice_normalized)
+    fruit_choice = streamlit.text:input("What fruit would you like information about?")
+      if not fruit_choice:
+        streamlit.error("Please select a fruit to get information.")
+      else:
+        back_from_function = get_fuityvice_data(fruit_choice)
+        streamlit.dataframe(back_from_function)
  
 except URLError as e:
   streamlit.error()
